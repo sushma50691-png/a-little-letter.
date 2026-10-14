@@ -3,1205 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff4f7">
-<title>A Little World for You ♡</title>
-<meta name="description" content="A little world made with love, just for you.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Our Little Secret Kingdom 💗</title>
 <style>
 :root {
-  --pink: #f6cbd6;
-  --pink-dark: #d984a0;
-  --rose: #bd627f;
-  --wine: #713c51;
-  --cream: #fff8f6;
-  --paper: #fffdfb;
-  --text: #765563;
-  --muted: #a88693;
-  --line: #f0dce3;
-  --shadow: 0 18px 50px rgba(155, 89, 116, .10);
+  --pink:#ff8fba;
+  --light:#ffe4ef;
+  --pale:#fff4f8;
+  --dark:#9e416c;
+  --white:#fffafd;
 }
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 22px;
-}
-
+* { box-sizing:border-box; }
 body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--text);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.85;
-  overflow-x: hidden;
-}
-
-button, a { -webkit-tap-highlight-color: transparent; }
-button { font: inherit; }
-
-button:focus-visible, a:focus-visible {
-  outline: 3px solid var(--rose);
-  outline-offset: 4px;
-}
-
-a { color: inherit; }
-
-::selection { background: #f4cad7; color: var(--wine); }
-
-#hearts {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 20;
-}
-
-.floating-heart {
-  position: absolute;
-  bottom: -40px;
-  color: var(--pink-dark);
-  opacity: .48;
-  animation: floatHeart linear forwards;
-}
-
-@keyframes floatHeart {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-  12% { opacity: .48; }
-  100% { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
-}
-
-.grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .15;
-  z-index: -1;
-  background-image: radial-gradient(#d8a2b3 .5px, transparent .5px);
-  background-size: 12px 12px;
-}
-
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 20px 6%;
-  z-index: 5;
-}
-
-.brand {
-  font-family: "Cormorant Garamond", serif;
-  color: var(--wine);
-  font-size: 25px;
-  font-style: italic;
-}
-
-.nav-note {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.hero {
-  position: relative;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 95px 22px 50px;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 15% 20%, #fce3eb 0, transparent 38%),
-    radial-gradient(ellipse at 90% 75%, #f9e5e7 0, transparent 35%),
-    linear-gradient(145deg, #fff9f7, #fff0f5);
-}
-
-.hero::before, .hero::after {
-  content: "✿";
-  position: absolute;
-  color: #e9b6c7;
-  opacity: .38;
-  font-size: 115px;
-  pointer-events: none;
-}
-
-.hero::before { top: 14%; left: -28px; transform: rotate(-25deg); }
-.hero::after { bottom: 9%; right: -24px; transform: rotate(22deg); }
-
-.eyebrow {
-  color: var(--rose);
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 4px;
-}
-
-h1, h2, h3, .serif {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 500;
-}
-
-.hero h1 {
-  color: var(--wine);
-  font-size: clamp(54px, 13vw, 94px);
-  line-height: .98;
-  margin: 24px 0 15px;
-  letter-spacing: -2px;
-}
-
-.hero h1 em { color: var(--rose); font-weight: 400; }
-
-.hero-copy {
-  max-width: 370px;
-  font-size: 14px;
-  color: var(--muted);
-  margin: 0 auto 16px;
-}
-
-.ornament {
-  margin: 12px 0;
-  color: var(--pink-dark);
-  letter-spacing: 9px;
-}
-
-.envelope-area {
-  margin: 22px 0 8px;
-  perspective: 900px;
-}
-
-.envelope-button {
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  padding: 12px;
-  color: var(--wine);
-}
-
-.envelope {
-  width: 174px;
-  height: 116px;
-  position: relative;
-  background: #e9aabc;
-  border-radius: 5px;
-  box-shadow: 0 18px 35px rgba(177, 98, 127, .2);
-  transition: transform .4s;
-}
-
-.envelope-button:active .envelope { transform: scale(.96); }
-
-.envelope::before, .envelope::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.envelope::before {
-  background: #f3c8d4;
-  clip-path: polygon(0 0, 50% 58%, 100% 0);
-  transform-origin: top;
-  transition: transform .6s ease;
-  z-index: 3;
-}
-
-.envelope::after {
-  background: #d991a7;
-  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
-  z-index: 2;
-}
-
-.envelope-flap {
-  position: absolute;
-  inset: 0;
-  background: #f0bdcc;
-  clip-path: polygon(0 0, 100% 0, 50% 57%);
-  z-index: 4;
-  transform-origin: top;
-  transition: transform .6s ease;
-}
-
-.envelope-letter {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  top: 9px;
-  height: 88px;
-  background: #fffaf6;
-  border-radius: 4px;
-  display: grid;
-  place-items: center;
-  color: var(--rose);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px;
-  transition: transform .65s ease;
-  z-index: 1;
-}
-
-.envelope-seal {
-  position: absolute;
-  z-index: 5;
-  left: 50%;
-  top: 56%;
-  transform: translate(-50%, -50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--rose);
-  color: white;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 2px 6px #b86e8955;
-  transition: opacity .3s;
-}
-
-.envelope-button.opened .envelope-flap,
-.envelope-button.opened .envelope::before { transform: rotateX(180deg); }
-
-.envelope-button.opened .envelope-letter {
-  transform: translateY(-52px);
-  z-index: 6;
-}
-
-.envelope-button.opened .envelope-seal { opacity: 0; }
-
-.envelope-caption {
-  display: block;
-  margin-top: 17px;
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 1.4px;
-}
-
-.pill-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--rose);
-  border-radius: 50px;
-  padding: 13px 23px;
-  margin-top: 18px;
-  background: var(--rose);
-  color: white;
-  text-decoration: none;
-  font-size: 12px;
-  cursor: pointer;
-  box-shadow: 0 8px 22px #bd627f25;
-  transition: transform .2s, background .2s;
-}
-
-.pill-button:active { transform: scale(.97); }
-
-.pill-button.outline {
-  background: transparent;
-  color: var(--wine);
-  box-shadow: none;
-}
-
-main {
-  position: relative;
-  z-index: 1;
-}
-
-.section {
-  max-width: 850px;
-  padding: 82px 22px;
-  margin: 0 auto;
-}
-
-.section-heading {
-  text-align: center;
-  margin: 0 auto 32px;
-}
-
-.kicker {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 3.5px;
-  color: var(--rose);
-}
-
-.section-heading h2 {
-  color: var(--wine);
-  font-size: clamp(38px, 9vw, 59px);
-  line-height: 1.1;
-  margin: 13px 0;
-}
-
-.section-heading p {
-  max-width: 490px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.paper {
-  padding: clamp(23px, 6vw, 48px);
-  border: 1px solid var(--line);
-  border-radius: 5px 25px 5px 25px;
-  background: rgba(255, 253, 251, .9);
-  box-shadow: var(--shadow);
-}
-
-.paper p {
-  font-size: 14px;
-  margin: 0 0 21px;
-}
-
-.paper p:last-child { margin-bottom: 0; }
-
-.dropcap::first-letter {
-  float: left;
-  font-family: "Cormorant Garamond", serif;
-  color: var(--rose);
-  font-size: 55px;
-  line-height: .85;
-  padding: 5px 9px 0 0;
-}
-
-.signature {
-  text-align: right;
-  color: var(--rose);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 27px !important;
-  font-style: italic;
-}
-
-.soft-bg {
-  background: linear-gradient(180deg, #fff3f6, #fff9f6);
-}
-
-.quote-card {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 36px 23px;
-  text-align: center;
-  border-top: 1px solid #eacbd5;
-  border-bottom: 1px solid #eacbd5;
-}
-
-.quote-mark {
-  font-family: "Cormorant Garamond", serif;
-  color: var(--pink-dark);
-  font-size: 54px;
-  line-height: .8;
-}
-
-.quote-card blockquote {
-  margin: 10px 0;
-  font-family: "Cormorant Garamond", serif;
-  color: var(--wine);
-  font-size: clamp(26px, 6vw, 39px);
-  font-style: italic;
-  line-height: 1.35;
-}
-
-.quote-card p { font-size: 12px; color: var(--muted); }
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px;
-}
-
-.love-card {
-  min-height: 160px;
-  padding: 21px 17px;
-  background: #fffdfb;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: 0 8px 25px #a9657910;
-  transition: transform .3s;
-}
-
-.love-card:nth-child(even) { transform: translateY(10px); }
-.love-card:active { transform: scale(.98); }
-
-.card-icon { font-size: 26px; }
-.love-card h3 {
-  color: var(--wine);
-  font-size: 23px;
-  margin: 9px 0 5px;
-  line-height: 1.1;
-}
-.love-card p { color: var(--muted); font-size: 12px; margin: 0; }
-
-.timeline {
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
-  padding-left: 28px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: #e8bac9;
-}
-
-.timeline-item {
-  position: relative;
-  margin: 0 0 28px;
-  padding: 20px;
-  border-radius: 15px;
-  background: #fffdfb;
-  border: 1px solid var(--line);
-}
-
-.timeline-item::before {
-  content: "♡";
-  position: absolute;
-  left: -29px;
-  top: 21px;
-  color: var(--rose);
-  font-size: 17px;
-  background: var(--cream);
-}
-
-.timeline-item h3 {
-  color: var(--wine);
-  font-size: 25px;
-  margin: 0 0 5px;
-}
-
-.timeline-item p { font-size: 13px; margin: 0; color: var(--muted); }
-
-.memory-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.memory {
-  background: white;
-  padding: 10px 10px 18px;
-  box-shadow: var(--shadow);
-  transform: rotate(-1.5deg);
-}
-
-.memory:nth-child(even) { transform: rotate(1.5deg) translateY(15px); }
-
-.memory-art {
-  aspect-ratio: 4 / 4.2;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, #fce4ea, #f7d0dc);
-  color: #bb758e;
-  font-size: 44px;
-  overflow: hidden;
-}
-
-.memory:nth-child(2) .memory-art { background: linear-gradient(145deg, #fbe9dd, #f3d4d4); }
-.memory:nth-child(3) .memory-art { background: linear-gradient(145deg, #f6dfe8, #ead9ee); }
-.memory:nth-child(4) .memory-art { background: linear-gradient(145deg, #fbe8ed, #f3dfd2); }
-
-.memory-caption {
-  text-align: center;
-  padding-top: 11px;
-  font-family: "Cormorant Garamond", serif;
-  color: var(--wine);
-  font-size: 19px;
-  line-height: 1.2;
-}
-
-.memory-caption small {
-  display: block;
-  font-family: "DM Sans", sans-serif;
-  font-size: 9px;
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-.honesty-box {
-  background: #fffdfb;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 27px;
-  box-shadow: var(--shadow);
-}
-
-.honesty-box h3 {
-  font-size: 30px;
-  color: var(--wine);
-  margin: 0 0 12px;
-}
-
-.honesty-box p { font-size: 14px; }
-
-.promise-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 23px;
-}
-
-.promise {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #fff5f7;
-  padding: 14px;
-  border-radius: 13px;
-  font-size: 13px;
-}
-
-.promise span:first-child { color: var(--rose); }
-
-.music-feature {
-  background: linear-gradient(145deg, #fbe6ec, #fff6f2);
-  padding: 23px;
-  border: 1px solid var(--line);
-  border-radius: 25px;
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.album-heart {
-  margin: 0 auto 18px;
-  width: 110px;
-  height: 110px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #efc4d1;
-  color: #a65e79;
-  font-size: 43px;
-  box-shadow: 0 0 0 10px #f7dce5, 0 0 0 20px #fae9ed;
-}
-
-.music-feature h3 {
-  color: var(--wine);
-  font-size: 31px;
-  margin: 37px 0 0;
-}
-
-.music-feature p { color: var(--muted); font-size: 12px; }
-
-.video-wrap {
-  overflow: hidden;
-  border-radius: 16px;
-  margin-top: 20px;
-  background: #ead0d9;
-}
-
-.video-wrap iframe {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-}
-
-.song-list { display: grid; gap: 13px; }
-
-.song {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 17px;
-  border: 1px solid var(--line);
-  background: #fffdfb;
-  border-radius: 17px;
-}
-
-.song-icon {
-  flex: 0 0 50px;
-  height: 50px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: #f9e4eb;
-  color: var(--rose);
-  font-size: 21px;
-}
-
-.song-info { flex: 1; min-width: 0; }
-.song-info h3 { font-size: 23px; color: var(--wine); margin: 0; }
-.song-info p { font-size: 11px; color: var(--muted); margin: 0; }
-
-.song-link {
-  flex-shrink: 0;
-  font-size: 11px;
-  color: var(--rose);
-  text-decoration: none;
-  border: 1px solid #e8c3cf;
-  padding: 7px 10px;
-  border-radius: 30px;
-}
-
-.note-stack { display: grid; gap: 14px; }
-
-.note {
-  padding: 22px;
-  background: #fffdfb;
-  border: 1px solid var(--line);
-  border-radius: 5px 18px 5px 18px;
-  box-shadow: 0 8px 24px #a9657910;
-}
-
-.note h3 { color: var(--wine); font-size: 26px; margin: 0 0 5px; }
-.note p { font-size: 13px; margin: 0; }
-
-.final-section {
-  padding: 95px 22px 105px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 15% 20%, #fce3eb, transparent 42%),
-    linear-gradient(150deg, #fff2f6, #fffaf6);
-}
-
-.final-inner { max-width: 650px; margin: 0 auto; }
-
-.final-section h2 {
-  font-size: clamp(44px, 10vw, 72px);
-  line-height: 1.05;
-  color: var(--wine);
-  margin: 20px 0;
-}
-
-.final-section > div > p {
-  max-width: 500px;
-  margin: 0 auto 17px;
-  font-size: 14px;
-}
-
-#lastLetter {
-  display: none;
-  margin: 28px auto 0;
-  padding: 26px;
-  max-width: 520px;
-  text-align: left;
-  background: rgba(255,255,255,.85);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-}
-
-#lastLetter p { font-size: 14px; }
-
-footer {
-  padding: 27px 20px 35px;
-  text-align: center;
-  font-size: 11px;
-  color: var(--muted);
-  background: var(--cream);
-}
-
-footer .footer-heart { color: var(--rose); font-size: 19px; }
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-@media (min-width: 700px) {
-  .section { padding-top: 105px; padding-bottom: 105px; }
-  .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .memory-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .music-feature { padding: 40px; }
-  .paper { padding: 48px; }
-}
-
-@media (max-width: 390px) {
-  .nav { padding: 15px 18px; }
-  .nav-note { font-size: 8px; letter-spacing: 1px; }
-  .card-grid { grid-template-columns: 1fr; }
-  .love-card:nth-child(even) { transform: none; }
-  .song { gap: 9px; padding: 12px; }
-  .song-icon { flex-basis: 40px; height: 40px; }
-  .song-info h3 { font-size: 20px; }
-  .song-link { padding: 6px 8px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1; transform: none; }
+  margin:0; min-height:100vh; color:#803653;
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  background:linear-gradient(145deg,#ffd9e9,#fff0f6,#f9c4dc);
+  overflow-x:hidden;
+}
+button,input { font:inherit; }
+button {
+  border:0; cursor:pointer; border-radius:18px;
+  padding:12px 18px; background:#ff8fba; color:white;
+  box-shadow:0 5px 0 #df6d9b;
+  transition:transform .2s,filter .2s;
+}
+button:hover { filter:brightness(1.04); transform:translateY(-2px); }
+button:active { transform:translateY(2px); box-shadow:0 2px 0 #df6d9b; }
+button:disabled { opacity:.5; cursor:not-allowed; }
+input {
+  width:100%; max-width:340px; padding:13px;
+  border:2px solid #ffc1d9; border-radius:14px;
+  background:#fffafd; color:#803653; outline:none;
+}
+input:focus { border-color:#ff80b1; }
+.top {
+  max-width:850px; margin:auto; padding:18px 16px 0;
+}
+.brand { font-weight:bold; letter-spacing:1px; text-align:center; }
+.progress-wrap {
+  height:9px; background:#ffffffa8; border-radius:99px;
+  margin-top:14px; overflow:hidden;
+}
+#progress {
+  height:100%; width:0; background:linear-gradient(90deg,#ff7eaf,#e6a5ff);
+  transition:width .4s;
+}
+.progress-label { text-align:center; font-size:12px; margin:7px 0; }
+main { max-width:850px; margin:0 auto; padding:16px; }
+.card {
+  position:relative; overflow:hidden;
+  background:#fffafdde; border:2px solid #fff;
+  border-radius:28px; padding:25px 18px;
+  box-shadow:0 12px 35px #c85d8b20;
+  text-align:center; min-height:430px;
+}
+.card:before {
+  content:"♡  ✧  ♡"; display:block; color:#f2a1c4;
+  font-size:18px; letter-spacing:12px; margin-bottom:16px;
+}
+.eyebrow { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#c26b91; }
+h1 { font-size:clamp(27px,7vw,43px); line-height:1.15; margin:12px 0; }
+h2 { font-size:22px; }
+p { line-height:1.8; }
+.art { font-size:68px; margin:18px 0; animation:float 3s ease-in-out infinite; }
+@keyframes float { 50% { transform:translateY(-7px) rotate(2deg); } }
+.story { max-width:570px; margin:12px auto 20px; }
+.actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:20px; }
+.secondary { background:#f7d2e3; color:#9e416c; box-shadow:0 5px 0 #e7b4cc; }
+.choice {
+  display:block; width:100%; max-width:410px; margin:10px auto;
+  background:#fff; color:#9e416c; border:1px solid #f5c3d9;
+  box-shadow:0 4px 0 #f0c1d6;
+}
+.choice.correct { background:#fbd5e6; }
+#feedback { min-height:28px; margin-top:15px; font-weight:bold; }
+.dots { display:flex; justify-content:center; flex-wrap:wrap; gap:6px; margin:16px auto; }
+.dot {
+  width:28px; height:28px; padding:0; border-radius:50%;
+  font-size:12px; box-shadow:none; background:#f1c6d9; color:#9e416c;
+}
+.dot.open { background:#ff8fba; color:white; }
+.dot.current { outline:3px solid #d96d9c; outline-offset:2px; }
+.door-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-width:520px; margin:20px auto; }
+.door {
+  background:#ffe0ed; color:#9e416c; box-shadow:0 5px 0 #efb4ce;
+  min-height:85px; padding:10px 4px;
+}
+.door span { display:block; font-size:28px; margin-bottom:5px; }
+.small { font-size:12px; opacity:.8; }
+.song-list { max-width:430px; margin:auto; }
+.song-list a { color:#ad4c7a; display:block; padding:12px; margin:8px 0; border-radius:15px; background:#fff0f6; text-decoration:none; }
+.letter {
+  text-align:left; padding:20px; border-radius:18px;
+  background:linear-gradient(135deg,#fff0f6,#fffafd);
+  border:1px dashed #ee9cbe; line-height:1.95;
+}
+.footer { text-align:center; padding:10px 16px 35px; font-size:12px; opacity:.8; }
+.floating { position:fixed; pointer-events:none; opacity:.5; animation:rise 9s linear infinite; z-index:-1; }
+@keyframes rise { from {transform:translateY(110vh) rotate(0deg)} to {transform:translateY(-15vh) rotate(240deg)} }
+@media(max-width:480px) {
+  main { padding:10px; }
+  .card { padding:22px 14px; min-height:450px; }
+  .door-grid { gap:7px; }
+  .door { font-size:12px; }
 }
 </style>
 </head>
-
 <body>
-<div class="grain" aria-hidden="true"></div>
-<div id="hearts" aria-hidden="true"></div>
 
-<header class="hero" id="home">
-  <nav class="nav">
-    <span class="brand">for my love ♡</span>
-    <span class="nav-note">made with all my heart</span>
-  </nav>
-
-  <span class="eyebrow">A little world, just for you</span>
-  <h1>To my<br><em>favorite person</em></h1>
-  <p class="hero-copy">If I could put all my feelings somewhere, I think they'd look a little like this.</p>
-  <div class="ornament">♡ ✿ ♡</div>
-
-  <div class="envelope-area">
-    <button class="envelope-button" id="envelopeButton" aria-label="Open the love letter">
-      <div class="envelope">
-        <div class="envelope-letter">for you ♡</div>
-        <div class="envelope-flap"></div>
-        <div class="envelope-seal">♥</div>
-      </div>
-      <span class="envelope-caption" id="envelopeCaption">TAP THE ENVELOPE TO OPEN</span>
-    </button>
-  </div>
-
-  <button class="pill-button" id="beginButton">Open your little world ↓</button>
-  <p class="hero-copy">Take your time, sweetheart. There's no rush.</p>
+<div id="floaties"></div>
+<header class="top">
+  <div class="brand">୨୧ OUR LITTLE SECRET KINGDOM ୨୧</div>
+  <div class="progress-wrap"><div id="progress"></div></div>
+  <div class="progress-label" id="progressLabel">Your adventure is waiting…</div>
 </header>
 
 <main>
-  <!-- SECTION 1: THE LETTER -->
-  <section class="section reveal" id="letter">
-    <div class="section-heading">
-      <span class="kicker">01 · a letter from me</span>
-      <h2>If my heart could<br>write a letter</h2>
-      <p>These are the things I want you to understand, gently and honestly.</p>
-    </div>
-
-    <article class="paper">
-      <p class="dropcap">Hey, my love. If you're reading this, I hope you're comfortable and taking a little moment for yourself. I made this page because there are feelings I sometimes struggle to explain when we're talking. Sometimes I have so much on my mind that the important things get lost in the middle of a conversation.</p>
-
-      <p>First, I want you to know that you matter to me. You matter in the ordinary parts of my day, in the little things that remind me of you, and in the moments when I wish I could tell you something immediately because you're the person I want to share it with.</p>
-
-      <p>I don't need our relationship to look perfect from the outside. I don't need every day to be magical or every conversation to be beautiful. I want something real. Something where we can have difficult days and still treat each other with care. Something where we can admit when we're wrong and try to do better without making each other feel small for having feelings.</p>
-
-      <p>And because what we have matters to me, I want to be honest about what has been sitting on my heart. Sometimes I feel hurt when something we talked about or promised doesn't happen, especially when it happens more than once. Sometimes I need reassurance and don't know how to ask for it without feeling like I'm asking for too much.</p>
-
-      <p>I'm not writing this to blame you or make you feel guilty. I'm writing because I don't want my feelings to come out as frustration when what I'm really trying to say is that I want to feel close to you. I want us to understand each other instead of getting stuck in the same misunderstanding.</p>
-
-      <p>I know neither of us can be available every second. I know life gets busy and people get tired. I don't expect you to read my mind or always know the perfect thing to say. What I hope for is honesty, communication, and effort that feels genuine from both of us.</p>
-
-      <p>When you tell me something and follow through, even in a small way, it helps me trust your words. When you notice that I'm feeling low and ask what's wrong, it makes me feel seen. When we disagree but still try to listen, it reminds me that we're on the same team.</p>
-
-      <p>I want to give you that same care, too. Your feelings matter. Your boundaries matter. If something is difficult for you, I want you to feel safe telling me instead of promising something you can't manage. I'd rather we make an honest plan together than have either of us feeling disappointed later.</p>
-
-      <p>More than anything, I hope we can make our relationship a place where love is something we show in the everyday moments. Not only through big words, but through patience, kindness, remembering what matters to each other, and being willing to learn.</p>
-
-      <p>I'm still learning, too. I won't always get everything right, and I want to be able to hear you when you tell me that. I hope we can both take responsibility for our part, without turning every mistake into a fight about who cares more.</p>
-
-      <p>So this is my little letter: I care about you, I care about us, and I want us to keep building something that feels warm and honest for both of us. You don't have to give me a perfect answer after reading this. I just hope you understand my heart a little better.</p>
-
-      <p class="signature">With love, always ♡</p>
-    </article>
-  </section>
-
-  <!-- SECTION 2: A LITTLE PAUSE -->
-  <section class="soft-bg">
-    <div class="section reveal">
-      <div class="quote-card">
-        <div class="quote-mark">“</div>
-        <blockquote>I don't need perfect.<br>I need honest, gentle, and real.</blockquote>
-        <p>A little reminder from my heart to yours ♡</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: THINGS I LOVE -->
-  <section class="section reveal" id="things">
-    <div class="section-heading">
-      <span class="kicker">02 · little things</span>
-      <h2>Things I love<br>about us</h2>
-      <p>Love isn't just one grand moment. Sometimes it's a hundred little things.</p>
-    </div>
-
-    <div class="card-grid">
-      <article class="love-card">
-        <span class="card-icon">🌷</span>
-        <h3>Your little ways</h3>
-        <p>The small things you do that make an ordinary day feel a little softer.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">☁️</span>
-        <h3>Our conversations</h3>
-        <p>The random things, the serious talks, and all the little moments in between.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">🧸</span>
-        <h3>Feeling close</h3>
-        <p>Those moments when we understand each other without needing a thousand words.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">🎀</span>
-        <h3>Our inside jokes</h3>
-        <p>The silly things that might make no sense to anyone else but make us smile.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">🌙</span>
-        <h3>The quiet moments</h3>
-        <p>Knowing we can slow down and talk about what's really going on.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">💌</span>
-        <h3>What we're building</h3>
-        <p>The chance to learn about each other and grow with care, honesty, and patience.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 4: OUR STORY -->
-  <section class="soft-bg">
-    <div class="section reveal">
-      <div class="section-heading">
-        <span class="kicker">03 · our little story</span>
-        <h2>A story still<br>being written</h2>
-        <p>Replace these examples with your own real memories and milestones.</p>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item">
-          <h3>The beginning ✿</h3>
-          <p>Write about how you first met, your first conversation, or what made you notice her.</p>
-        </article>
-        <article class="timeline-item">
-          <h3>The first butterflies 🦋</h3>
-          <p>Describe a moment when you realized she was becoming someone special to you.</p>
-        </article>
-        <article class="timeline-item">
-          <h3>A memory I keep ♡</h3>
-          <p>Add a real moment you still think about because it made you happy.</p>
-        </article>
-        <article class="timeline-item">
-          <h3>What comes next 🌷</h3>
-          <p>Talk about the kind of relationship you hope to build together, one honest step at a time.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: MEMORIES -->
-  <section class="section reveal" id="memories">
-    <div class="section-heading">
-      <span class="kicker">04 · little snapshots</span>
-      <h2>Our memory garden</h2>
-      <p>One day, these spaces can hold your favorite pictures together. For now, imagine the memories you want to keep close.</p>
-    </div>
-
-    <div class="memory-grid">
-      <article class="memory">
-        <div class="memory-art">🌸</div>
-        <div class="memory-caption">Our favorite day<small>ADD YOUR PHOTO</small></div>
-      </article>
-      <article class="memory">
-        <div class="memory-art">🦋</div>
-        <div class="memory-caption">That silly moment<small>ADD YOUR PHOTO</small></div>
-      </article>
-      <article class="memory">
-        <div class="memory-art">💗</div>
-        <div class="memory-caption">A little happiness<small>ADD YOUR PHOTO</small></div>
-      </article>
-      <article class="memory">
-        <div class="memory-art">🌙</div>
-        <div class="memory-caption">One to remember<small>ADD YOUR PHOTO</small></div>
-      </article>
-    </div>
-
-    <p style="text-align:center;color:var(--muted);font-size:11px;margin-top:35px;">
-      You can add pictures later by uploading them to your repository and replacing these illustrations with image elements.
-    </p>
-  </section>
-
-  <!-- SECTION 6: REASSURANCE -->
-  <section class="soft-bg">
-    <div class="section reveal">
-      <div class="section-heading">
-        <span class="kicker">05 · what matters</span>
-        <h2>Reassurance can<br>be a little thing</h2>
-      </div>
-
-      <article class="paper">
-        <p>Sometimes reassurance isn't a long paragraph or a perfect answer. Sometimes it's a simple message that says, "I'm here, and we'll talk about this."</p>
-
-        <p>Sometimes it's letting the other person know when you're busy instead of leaving them guessing. Sometimes it's listening without immediately getting defensive. Sometimes it's remembering a conversation and checking in later.</p>
-
-        <p>I want us to be able to ask for comfort without feeling embarrassed. I also want us to be honest when we need space or when we don't know what to say. Both people deserve understanding.</p>
-
-        <p>We won't always be able to fix a feeling instantly, and that's okay. What matters to me is knowing that we can talk about it with kindness instead of dismissing it or pretending it never happened.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 7: PROMISES AND ACTIONS -->
-  <section class="section reveal">
-    <div class="section-heading">
-      <span class="kicker">06 · the little things that count</span>
-      <h2>Words are lovely.<br>Actions help them grow.</h2>
-      <p>Not perfection. Not grand gestures. Just the everyday care that makes words feel real.</p>
-    </div>
-
-    <div class="honesty-box">
-      <h3>What effort can look like ♡</h3>
-      <p>For me, effort doesn't mean being available every minute. It means caring enough to communicate, follow through when possible, and be honest when plans change.</p>
-
-      <div class="promise-list">
-        <div class="promise"><span>♡</span><span>Keeping small promises, or letting each other know honestly when plans change.</span></div>
-        <div class="promise"><span>♡</span><span>Making time for meaningful conversations, even when life gets busy.</span></div>
-        <div class="promise"><span>♡</span><span>Offering reassurance with kindness when one of us is having a difficult day.</span></div>
-        <div class="promise"><span>♡</span><span>Listening to each other's feelings without turning them into a competition.</span></div>
-        <div class="promise"><span>♡</span><span>Taking responsibility and showing change through consistent effort over time.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 8: WHAT I WISH FOR US -->
-  <section class="soft-bg">
-    <div class="section reveal">
-      <div class="section-heading">
-        <span class="kicker">07 · my hope for us</span>
-        <h2>A love that feels<br>like a safe place</h2>
-      </div>
-
-      <div class="note-stack">
-        <article class="note">
-          <h3>Room to be honest</h3>
-          <p>I hope we can say what's bothering us without being afraid that one difficult conversation means everything is falling apart.</p>
-        </article>
-        <article class="note">
-          <h3>Care in both directions</h3>
-          <p>I want both of us to feel listened to. Neither of us should have to pretend to be okay all the time just to keep the peace.</p>
-        </article>
-        <article class="note">
-          <h3>Growth, not perfection</h3>
-          <p>We can make mistakes and still learn from them. What matters is whether we can recognize what happened and try a different way next time.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 9: THE SOUNDTRACK -->
-  <section class="section reveal" id="music">
-    <div class="section-heading">
-      <span class="kicker">08 · songs for my favorite person</span>
-      <h2>Our little<br>soundtrack 🎧</h2>
-      <p>Three songs, three different feelings, and a little reminder of you.</p>
-    </div>
-
-    <div class="music-feature">
-      <div class="album-heart">♫</div>
-      <h3>Jo Tum Mere Ho</h3>
-      <p>Anuv Jain · A little song for this moment</p>
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/ilNt2bikxDI?playsinline=1&rel=0"
-          title="Jo Tum Mere Ho - Anuv Jain"
-          loading="lazy"
-          allow="encrypted-media; picture-in-picture"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <p>Tap play in the video to listen. You can pause it whenever you like.</p>
-    </div>
-
-    <div class="song-list" style="margin-top:24px;">
-      <article class="song">
-        <div class="song-icon">♫</div>
-        <div class="song-info">
-          <h3>Kangna</h3>
-          <p>Dr Zeus, Master Rakesh</p>
-        </div>
-        <a class="song-link" href="https://www.youtube.com/results?search_query=Kangna+Dr+Zeus+Master+Rakesh" target="_blank" rel="noopener noreferrer">Listen ↗</a>
-      </article>
-      <article class="song">
-        <div class="song-icon">♡</div>
-        <div class="song-info">
-          <h3>Paro</h3>
-          <p>Aditya Rikhari</p>
-        </div>
-        <a class="song-link" href="https://www.youtube.com/results?search_query=Paro+Aditya+Rikhari+official" target="_blank" rel="noopener noreferrer">Listen ↗</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 10: A NOTE FOR HARD DAYS -->
-  <section class="soft-bg">
-    <div class="section reveal">
-      <div class="section-heading">
-        <span class="kicker">09 · for the difficult days</span>
-        <h2>When things feel<br>a little heavy</h2>
-      </div>
-
-      <article class="paper">
-        <p>My love, there will be days when we're tired, when we misunderstand each other, or when neither of us knows exactly what to say. I hope those days don't make us forget the importance of being kind.</p>
-
-        <p>We don't have to solve everything in one conversation. It's okay to take a breath, calm down, and return to a difficult topic when we're ready to listen properly.</p>
-
-        <p>I hope we can learn to say, "I hear you," even when we see things differently. I hope we can apologize without treating an apology as the whole solution. And I hope we can make changes that are realistic, mutual, and lasting.</p>
-
-        <p>Most of all, I hope neither of us feels like we have to earn basic kindness. We both deserve respect, honesty, and the freedom to say what we need.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 11: THINGS I WANT YOU TO KNOW -->
-  <section class="section reveal">
-    <div class="section-heading">
-      <span class="kicker">10 · please remember</span>
-      <h2>A few little reminders</h2>
-    </div>
-
-    <div class="card-grid">
-      <article class="love-card">
-        <span class="card-icon">🌷</span>
-        <h3>You matter</h3>
-        <p>Your thoughts, your feelings, and your voice deserve room in our relationship.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">🫶</span>
-        <h3>We can talk</h3>
-        <p>We don't need perfect words to begin an honest conversation.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">✨</span>
-        <h3>Small steps count</h3>
-        <p>Real progress can start with one sincere conversation and one kept promise.</p>
-      </article>
-      <article class="love-card">
-        <span class="card-icon">🕊️</span>
-        <h3>There's room to grow</h3>
-        <p>We can learn, change, and be gentle with ourselves along the way.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SECTION 12: FINAL MESSAGE -->
-  <section class="final-section reveal" id="final">
-    <div class="final-inner">
-      <span class="kicker">11 · one last little note</span>
-      <div class="ornament">✿ ♡ ✿</div>
-      <h2>From my heart<br>to yours</h2>
-
-      <p>If you've read all the way here, thank you for spending a little time in this world I made for you.</p>
-
-      <p>I hope you understand that these words come from wanting us to understand each other better. I care about you, and I want our relationship to be a place where both of us feel valued, heard, and respected.</p>
-
-      <p>I don't expect a perfect response or an overnight change. I hope we can talk honestly about what each of us needs, agree on what we can realistically do, and let our actions show our intentions over time.</p>
-
-      <p>I'll keep learning how to express myself and how to listen to you, too. I hope we can both bring patience, honesty, and care into what we build together.</p>
-
-      <p class="serif" style="font-size:27px;color:var(--rose);font-style:italic;">You are someone very special to me. ♡</p>
-
-      <button class="pill-button" id="lastButton">Open my last note 💌</button>
-
-      <div id="lastLetter">
-        <h3 class="serif" style="font-size:31px;color:var(--wine);">My love,</h3>
-        <p>I made this page because I wanted to share what is in my heart in a way that feels thoughtful, calm, and true to me.</p>
-        <p>I hope we can make space for each other's feelings, be honest about our promises, and show our care in little ways that last. I want us both to feel that our words mean something because we keep trying to live by them.</p>
-        <p>Whatever we need to talk about, I hope we can do it with respect. You don't have to be perfect for me, and I don't want either of us to feel pressured to pretend. Let's be real with each other and see what we can build, together.</p>
-        <p class="signature">With all my love, ♡</p>
-      </div>
-
-      <div class="ornament" style="margin-top:40px;">♡ · 🌷 · ♡</div>
-      <p style="font-size:11px;color:var(--muted);">A little page made with love, just for you.</p>
-    </div>
-  </section>
+  <section class="card" id="room"></section>
+  <div class="dots" id="dots"></div>
+  <div class="actions">
+    <button class="secondary" id="backBtn" onclick="goBack()">← Previous</button>
+    <button class="secondary" onclick="showMap()">🗝️ Secret doors</button>
+    <button class="secondary" onclick="restart()">↻ Start again</button>
+  </div>
 </main>
-
-<footer>
-  <div class="footer-heart">♡</div>
-  made with care, patience, and a little bit of pink
-</footer>
+<div class="footer">made of little things, soft thoughts & pink magic ♡</div>
 
 <script>
-(function () {
-  const envelopeButton = document.getElementById("envelopeButton");
-  const envelopeCaption = document.getElementById("envelopeCaption");
-  const letter = document.getElementById("letter");
-  const music = document.getElementById("music");
+const rooms = [
+{
+ title:"The Invitation", icon:"🏰",
+ text:"Somewhere beyond the ordinary world, there is a little kingdom where every door hides a feeling and every star keeps a secret.",
+ kind:"start", button:"Enter the kingdom ✨"
+},
+{
+ title:"The Moon Garden", icon:"🌙",
+ text:"The moon asks a little question before letting anyone pass.",
+ question:"What makes a tiny flower bloom?",
+ options:["A little sunshine and care","A crown made of gold","A thousand wishes"],
+ answer:0, success:"Even the smallest things grow when someone cares for them. 🌷"
+},
+{
+ title:"The Firefly Trail", icon:"✨",
+ text:"Three sleepy fireflies have lost their glow. Tap them all to light the way.",
+ kind:"fireflies"
+},
+{
+ title:"The Library of Whispers", icon:"📚",
+ text:"An owl guards a book of forgotten promises. It opens for the one who understands its riddle.",
+ question:"Which is more magical?",
+ options:["Beautiful words alone","Words that become actions","A thousand sparkling stickers"],
+ answer:1, success:"The owl smiles. Some kinds of magic are meant to be seen, not just heard. 🦉"
+},
+{
+ title:"The Velvet Key", icon:"🗝️",
+ text:"Two keys lie on a velvet pillow. One opens a door; the other opens a heart.",
+ question:"Choose the key you think belongs here.",
+ options:["The key of grand surprises","The key of little, thoughtful things","The key of pretty promises"],
+ answer:1, success:"The little key glows. Sometimes a small gesture means more than a grand speech. 💗"
+},
+{
+ title:"The Teddy Disco", icon:"🧸",
+ text:"The royal teddy has been waiting for a dance party. Give the little bear some happiness!",
+ kind:"dance"
+},
+{
+ title:"The Birthday Bakery", icon:"🎂",
+ text:"A tiny cake is waiting. Make a wish for the kind of magic everyone deserves.",
+ kind:"candles"
+},
+{
+ title:"The Mystery Gift Shop", icon:"🎁",
+ text:"Three gifts are waiting. Choose one to discover the secret inside.",
+ question:"Which gift calls to you?",
+ options:["🎀 A pink ribbon","💌 A little letter","⭐ A glowing star"],
+ answer:1, success:"Inside is a note: 'Being remembered in the little moments is its own kind of gift.'"
+},
+{
+ title:"The Memory Aquarium", icon:"🐠",
+ text:"Little bubbles float through this aquarium. Pop three to discover what makes moments special.",
+ kind:"bubbles"
+},
+{
+ title:"The Nickname Chamber", icon:"💌",
+ text:"Every kingdom has a special word that makes an ordinary day feel a little warmer.",
+ kind:"nickname"
+},
+{
+ title:"The Wishing Stars", icon:"🌟",
+ text:"Tap three stars. Each one carries a quiet wish for the future.",
+ kind:"stars"
+},
+{
+ title:"The Royal Letter", icon:"✉️",
+ text:"A letter has been sealed for a long time. Its message is simple: being understood can be a kind of magic.",
+ kind:"letter"
+},
+{
+ title:"The Dream Keeper", icon:"☁️",
+ text:"The Dream Keeper asks: what helps a little dream stay alive?",
+ question:"Choose your answer.",
+ options:["Only wishing for it","Taking small steps to care for it","Waiting for the stars to do everything"],
+ answer:1, success:"Dreams feel safer when someone helps them grow, one little step at a time. ☁️"
+},
+{
+ title:"The Final Vault", icon:"💎",
+ text:"One last door stands before the secret room. Choose what you believe makes a bond feel special.",
+ question:"What would you keep in the royal vault?",
+ options:["A thousand dramatic speeches","Little moments of care, honesty and effort","A promise that never needs to be kept"],
+ answer:1, success:"The vault opens. The best treasures are the things we keep showing, even on ordinary days. 💎"
+},
+{
+ title:"The Secret Room", icon:"💗",
+ text:"You found it. A little room for a feeling that was easier to hide inside a fairytale than say out loud.",
+ kind:"final"
+}
+];
 
-  envelopeButton.addEventListener("click", function () {
-    const opened = envelopeButton.classList.toggle("opened");
-    envelopeCaption.textContent = opened
-      ? "YOUR LITTLE LETTER IS WAITING BELOW ♡"
-      : "TAP THE ENVELOPE TO OPEN";
-  });
+let current=0;
+let unlocked=0;
+let taps=0;
+let nickname="";
+let giftOpened=false;
+let letterOpened=false;
+let completed={};
 
-  function openMyWorld() {
-    letter.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+const roomEl=document.getElementById("room");
+const feedbackEl=()=>document.getElementById("feedback");
 
-  document.getElementById("beginButton").addEventListener("click", openMyWorld);
-
-  // Show sections as they enter the screen.
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll(".reveal").forEach(function (section) {
-      observer.observe(section);
-    });
-  } else {
-    document.querySelectorAll(".reveal").forEach(function (section) {
-      section.classList.add("visible");
-    });
-  }
-
-  // The final note opens when the reader chooses.
-  document.getElementById("lastButton").addEventListener("click", function () {
-    const note = document.getElementById("lastLetter");
-    const isHidden = getComputedStyle(note).display === "none";
-
-    note.style.display = isHidden ? "block" : "none";
-    this.textContent = isHidden ? "Close my last note ♡" : "Open my last note 💌";
-
-    if (isHidden) {
-      note.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  });
-
-  // Gentle floating hearts.
-  const heartLayer = document.getElementById("hearts");
-  const reducedMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function addHeart() {
-    if (reducedMotion || document.hidden) return;
-
-    const heart = document.createElement("span");
-    heart.className = "floating-heart";
-    heart.textContent = Math.random() > 0.45 ? "♡" : "♥";
-    heart.style.left = Math.random() * 100 + "%";
-    heart.style.fontSize = (12 + Math.random() * 17) + "px";
-    heart.style.animationDuration = (9 + Math.random() * 8) + "s";
-
-    heartLayer.appendChild(heart);
-    heart.addEventListener("animationend", function () {
-      heart.remove();
-    });
-  }
-
-  if (!reducedMotion) {
-    for (let i = 0; i < 8; i++) {
-      setTimeout(addHeart, i * 450);
-    }
-    setInterval(addHeart, 1300);
-  }
-})();
+function esc(s) {
+ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function progress(){
+ document.getElementById("progress").style.width=(unlocked/rooms.length*100)+"%";
+ document.getElementById("progressLabel").textContent=
+ `${Math.min(unlocked+1,rooms.length)} of ${rooms.length} secret rooms discovered 💗`;
+}
+function dots(){
+ document.getElementById("dots").innerHTML=rooms.map((r,i)=>
+ `<button class="dot ${i<=unlocked?'open':''} ${i===current?'current':''}"
+ title="${esc(r.title)}" onclick="visit(${i})" ${i>unlocked?'disabled':''}>${i+1}</button>`
+ ).join("");
+}
+function base(r){
+ return `<div class="eyebrow">Secret room ${current+1} · ${current===14?'The final chapter':'A little discovery'}</div>
+ <div class="art">${r.icon}</div><h1>${r.title}</h1>
+ <p class="story">${r.text}</p><div id="game"></div><div id="feedback"></div>`;
+}
+function render(){
+ const r=rooms[current];
+ taps=0;
+ roomEl.innerHTML=base(r);
+ const g=document.getElementById("game");
+ if(r.kind==="start"){
+   g.innerHTML=`<p class="small">A story for someone who makes ordinary moments feel different.</p>
+   <button onclick="finish()">Enter the kingdom ✨</button>`;
+ } else if(r.kind==="fireflies"){
+   g.innerHTML=`<div class="actions">${[1,2,3].map(n=>`<button onclick="tapGame(this,'firefly')">🪲</button>`).join("")}</div>
+   <p id="counter">Fireflies glowing: 0 / 3</p>`;
+ } else if(r.kind==="dance"){
+   g.innerHTML=`<div class="art">🧸🎵</div><button onclick="dance()">Make the teddy dance! 💃</button>`;
+ } else if(r.kind==="candles"){
+   g.innerHTML=`<div class="art" id="cake">🧁</div><button onclick="blow()">Blow out the candles 🕯️</button>`;
+ } else if(r.kind==="bubbles"){
+   g.innerHTML=`<div class="actions">${["🫧","🐠","🫧","🐚","🫧"].map(x=>`<button onclick="tapGame(this,'bubble')">${x}</button>`).join("")}</div><p id="counter">Memories found: 0 / 3</p>`;
+ } else if(r.kind==="nickname"){
+   g.innerHTML=`<p>What sweet nickname or word belongs in this chamber? (Any answer will open it.)</p>
+   <input id="nick" maxlength="35" placeholder="A little word…">
+   <div class="actions"><button onclick="saveNick()">Place the word 💌</button></div>`;
+ } else if(r.kind==="stars"){
+   g.innerHTML=`<div class="actions">${["🌟","⭐","✨","💫"].map(x=>`<button onclick="tapGame(this,'star')">${x}</button>`).join("")}</div><p id="counter">Stars wished upon: 0 / 3</p>`;
+ } else if(r.kind==="letter"){
+   g.innerHTML=`<button onclick="openLetter()">Open the royal letter ✉️</button><div id="letterBox"></div>`;
+ } else if(r.kind==="final"){
+   g.innerHTML=`<button onclick="openFinal()">Open the last envelope 💌</button><div id="finalLetter"></div>`;
+ } else {
+   g.innerHTML=`<div class="story">${r.question}</div>`+
+   r.options.map((o,i)=>`<button class="choice" onclick="answer(${i})">${o}</button>`).join("");
+ }
+ if(completed[current]) showComplete();
+ if(current===14 && completed[current]) {
+   g.innerHTML=`<button onclick="openFinal()">Read the secret letter again 💌</button><div id="finalLetter"></div>`;
+ }
+ progress();dots();
+ document.getElementById("backBtn").disabled=current===0;
+}
+function showFeedback(s){const f=feedbackEl();if(f)f.textContent=s;}
+function showComplete(){
+ let f=feedbackEl(); if(f)f.innerHTML="✨ Room discovered! The next door is glowing.";
+ const g=document.getElementById("game");
+ if(g && !g.querySelector(".continue")){
+   g.insertAdjacentHTML("beforeend",`<div class="actions"><button class="continue" onclick="nextRoom()">Next secret door →</button></div>`);
+ }
+}
+function finish(){
+ completed[current]=true;unlocked=Math.max(unlocked,current+1);showComplete();progress();dots();
+}
+function answer(i){
+ const r=rooms[current];
+ if(i===r.answer){showFeedback(r.success);finish();}
+ else showFeedback("Not quite, little explorer. Try another door of thought. 🌷");
+}
+function tapGame(btn,type){
+ if(btn.disabled)return;
+ btn.disabled=true;btn.style.opacity=".45";taps++;
+ const count=document.getElementById("counter");
+ if(count)count.textContent=(type==="firefly"?"Fireflies glowing: ":"Memories found: ")+taps+" / 3";
+ if(taps>=3){
+   const msg=type==="firefly"?"The trail lights up. Even a little light can guide someone home. ✨":
+   type==="star"?"Your wishes are floating into the sky. May the quiet ones be heard. 🌟":
+   "Inside each bubble: a tiny reminder that little moments can mean a lot. 🫧";
+   showFeedback(msg);finish();
+ }
+}
+function dance(){
+ document.getElementById("game").insertAdjacentHTML("beforeend",`<div class="art">🧸💃🧸</div>`);
+ showFeedback("The teddy says: a little joy is worth sharing!");finish();
+}
+function blow(){
+ document.getElementById("cake").textContent="🎂✨";
+ showFeedback("The candles glow one last time. May the kind wishes come true. 💗");finish();
+}
+function saveNick(){
+ const v=document.getElementById("nick").value.trim();
+ if(!v){showFeedback("Even a tiny word will do. 🌷");return;}
+ nickname=v;showFeedback(`"${esc(v)}" is now part of the kingdom's little story. 💌`);finish();
+}
+function openLetter(){
+ document.getElementById("letterBox").innerHTML=`<div class="letter">
+ Some things are like little flowers. They don't ask for grand ceremonies or a sky full of fireworks. They just need to be noticed, cared for, and given a little time.<br><br>
+ And some of the most meaningful magic is quiet: remembering, checking in, showing up, and making the little things feel important.<br><br>
+ Maybe that's what makes a fairytale feel real. Not that everything is perfect, but that the little things keep being cared for. 🌷
+ </div>`;
+ showFeedback("The royal letter has been read. 💗");finish();
+}
+function openFinal(){
+ const box=document.getElementById("finalLetter");
+ if(!box)return;
+ box.innerHTML=`<div class="letter">
+ <h2 style="text-align:center">A little note from the kingdom 💗</h2>
+ Every fairytale has its own kind of magic. Some have castles, some have stars, and some have a person who can make an ordinary day feel special.<br><br>
+ But even in the prettiest kingdoms, the smallest things matter. A little reassurance can quiet a storm. A remembered detail can brighten a day. And a promise feels most magical when it becomes something real.<br><br>
+ Sometimes a heart doesn't need a thousand grand gestures. It just hopes to feel remembered in the little moments, too.<br><br>
+ So if there's one wish hidden in this whole adventure, it's this: may the things that matter to us be cared for gently, honestly, and not only in words, but in the everyday moments that follow.<br><br>
+ <div style="text-align:center;font-size:24px">🌷 🧸 💌 🌙</div>
+ <p style="text-align:center">And that, little explorer, is the kingdom's quietest secret.</p>
+ </div><div class="actions"><button onclick="sprinkle()">Release the magic ✨</button></div><div id="magic"></div>`;
+}
+function sprinkle(){
+ document.getElementById("magic").innerHTML=`<div class="art">💗✨🦋✨💗</div><p>The kingdom will always have room for a little more kindness.</p>`;
+}
+function nextRoom(){
+ if(current<rooms.length-1){current++;render();window.scrollTo({top:0,behavior:"smooth"});}
+ else openFinal();
+}
+function goBack(){if(current>0){current--;render();window.scrollTo({top:0,behavior:"smooth"});}}
+function visit(i){if(i<=unlocked){current=i;render();window.scrollTo({top:0,behavior:"smooth"});}}
+function showMap(){
+ roomEl.innerHTML=`<div class="eyebrow">Your adventure</div><div class="art">🗺️</div><h1>The Secret Door Map</h1>
+ <p>Every glowing door holds another little discovery. Unlock them one by one.</p>
+ <div class="door-grid">${rooms.map((r,i)=>`<button class="door" onclick="visit(${i})" ${i>unlocked?'disabled':''}><span>${i<=unlocked?r.icon:"🔒"}</span>${i+1}. ${r.title}</button>`).join("")}</div>`;
+ dots();document.getElementById("backBtn").disabled=false;
+}
+function restart(){
+ current=0;unlocked=0;taps=0;nickname="";completed={};render();window.scrollTo({top:0,behavior:"smooth"});
+}
+for(let i=0;i<12;i++){
+ const e=document.createElement("div");e.className="floating";
+ e.textContent=["♡","✧","💗","🌸"][i%4];
+ e.style.left=(Math.random()*100)+"%";
+ e.style.animationDelay=(Math.random()*8)+"s";
+ e.style.fontSize=(16+Math.random()*20)+"px";
+ document.getElementById("floaties").appendChild(e);
+}
+render();
 </script>
+
+<section style="max-width:650px;margin:10px auto 35px;padding:18px;">
+ <div class="card" style="min-height:0">
+   <div class="eyebrow">A little music corner</div>
+   <div class="art">🎧</div>
+   <h2>Soundtrack of the kingdom</h2>
+   <p>Tap a song to listen. The music opens separately so you can come back to the adventure anytime.</p>
+   <div class="song-list">
+     <a href="https://www.youtube.com/results?search_query=Jo+Tum+Mere+Ho+Anuv+Jain" target="_blank" rel="noopener">🎵 Jo Tum Mere Ho — Anuv Jain ↗</a>
+     <a href="https://www.youtube.com/results?search_query=Kangna+Dr+Zeus+Master+Rakesh" target="_blank" rel="noopener">🎵 Kangna — Dr Zeus, Master Rakesh ↗</a>
+     <a href="https://www.youtube.com/results?search_query=Paro+Aditya+Rikhari" target="_blank" rel="noopener">🎵 Paro — Aditya Rikhari ↗</a>
+   </div>
+   <p class="small">Music links open YouTube search results. Choose the correct track to play.</p>
+ </div>
+</section>
 </body>
 </html>
